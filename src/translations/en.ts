@@ -1,0 +1,181 @@
+
+export const en = {
+  // Auth
+  "login": "Log in",
+  "register": "Register",
+  "email": "Email",
+  "password": "Password",
+  "forgotPassword": "Forgot password?",
+  "dontHaveAccount": "Don't have an account?",
+  "createAccount": "Create account",
+  "signingIn": "Signing in...",
+  "signIn": "Sign in",
+  "welcomeBack": "Welcome Back",
+  "signInToCoffeeSAV": "Sign in to your CoffeeSAV account",
+  "enterCredentials": "Enter your credentials to access your account",
+  "demoCredentials": "Demo credentials",
+  
+  // Navigation
+  "dashboard": "Dashboard",
+  "machines": "Machines",
+  "maintenance": "Maintenance",
+  "history": "History",
+  "settings": "Settings",
+  "profile": "Profile",
+  "logout": "Logout",
+  
+  // Dashboard
+  "welcome": "Welcome back! Here's an overview of your coffee machine operations.",
+  "totalMachines": "Total Machines",
+  "acrossAllLocations": "Across all locations",
+  "maintenanceDue": "Maintenance Due",
+  "withinNext7Days": "Within next 7 days",
+  "recentServices": "Recent Services",
+  "last30Days": "Last 30 days",
+  "activeAlerts": "Active Alerts",
+  "requireAttention": "Require attention",
+  "recentActivity": "Recent Activity",
+  "latestEvents": "Latest events across your machines",
+  "quickActions": "Quick Actions",
+  "commonTasks": "Common tasks and shortcuts",
+  "registerNewMachine": "Register New Machine",
+  "logMaintenance": "Log Maintenance",
+  "viewAllMachines": "View All Machines",
+  
+  // Machines
+  "coffeeMachines": "Coffee Machines",
+  "viewAndManageMachines": "View and manage all your registered coffee machines",
+  "searchMachines": "Search machines by name, model, or location...",
+  "viewDetails": "View Details",
+  "nextService": "Next service",
+  "noServiceScheduled": "No service scheduled",
+  "noMachinesFound": "No machines found",
+  "noMachinesMessage": "We couldn't find any machines matching your search criteria.",
+  "clearSearch": "Clear Search",
+  
+  // Auth messages
+  "authRequired": "Authentication required",
+  "pleaseLogIn": "Please log in to access this page",
+  
+  // Status
+  "operational": "Operational",
+  "needsService": "Needs Service",
+  "outOfOrder": "Out of Order",
+  
+  // Languages
+  "english": "English",
+  "french": "French",
+  
+  // Register page
+  "createYourAccount": "Create Account",
+  "joinCoffeeSAV": "Join CoffeeSAV to manage your coffee machines",
+  "enterDetailsToCreate": "Enter your details to create a new account",
+  "fullName": "Full Name",
+  "confirmPassword": "Confirm Password",
+  "creatingAccount": "Creating account...",
+  "alreadyHaveAccount": "Already have an account?",
+  
+  // NotFound page
+  "pageNotFound": "Page Not Found",
+  "pageNotFoundMessage": "Sorry, we couldn't find the page you're looking for. The page might have been moved, deleted, or never existed.",
+  "backToHome": "Back to Home",
+  "goBack": "Go Back",
+  
+  // About page
+  "aboutCoffeeSAV": "About CoffeeSAV",
+  "aboutTagline": "Revolutionizing coffee machine service and maintenance tracking",
+  "aboutMission": "Our Mission",
+  "aboutVision": "Our Vision",
+  "aboutPrinciples": "Our Principles",
+  "joinOurJourney": "Join Our Journey",
+  "qualityFirst": "Quality First",
+  "collaboration": "Collaboration",
+  "innovation": "Innovation",
+  "dataDriver": "Data-Driven",
+  "reliability": "Reliability",
+  "userCentric": "User-Centric",
+  
+  // Contact page
+  "contactUs": "Contact Us",
+  "getInTouch": "Get in touch with our team",
+  "contactForm": "Contact Form",
+  "yourName": "Your Name",
+  "yourEmail": "Your Email",
+  "subject": "Subject",
+  "message": "Message",
+  "sendMessage": "Send Message",
+  "sending": "Sending...",
+  
+  // Profile page
+  "profileSettings": "Profile Settings",
+  "manageYourProfile": "Manage your personal information and preferences",
+  "personalInfo": "Personal Information",
+  "accountSettings": "Account Settings",
+  "notifications": "Notifications",
+  "emailNotifications": "Email Notifications",
+  "saveChanges": "Save Changes",
+  "saving": "Saving...",
+  
+  // Machine details
+  "machineDetails": "Machine Details",
+  "machineInfo": "Machine Information",
+  "status": "Status",
+  "model": "Model",
+  "serialNumber": "Serial Number",
+  "installationDate": "Installation Date",
+  "location": "Location",
+  "lastMaintenance": "Last Maintenance",
+  "upcomingMaintenance": "Upcoming Maintenance",
+  "maintenanceHistory": "Maintenance History",
+  "performedBy": "Performed By",
+  "date": "Date",
+  "type": "Type",
+  "notes": "Notes",
+  "editMachine": "Edit Machine",
+  "deleteMachine": "Delete Machine",
+  "scheduleService": "Schedule Service",
+  "reportIssue": "Report Issue",
+  
+  // Maintenance page
+  "maintenanceManagement": "Maintenance Management",
+  "scheduledMaintenance": "Scheduled Maintenance",
+  "completedMaintenance": "Completed Maintenance",
+  "noScheduledMaintenance": "No scheduled maintenance",
+  "noCompletedMaintenance": "No completed maintenance records",
+  "machineId": "Machine ID",
+  "maintenanceType": "Maintenance Type",
+  "maintenanceDate": "Maintenance Date",
+  "technician": "Technician",
+  "markComplete": "Mark as Complete",
+  "addNewMaintenance": "Add New Maintenance",
+  
+  // Home page
+  "coffeeManagementSystem": "Coffee Machine Service Management",
+  "trackMaintenanceDescription": "Track maintenance, manage service records, and optimize your coffee machine operations.",
+  "getStarted": "Get Started",
+  "learnMore": "Learn More",
+  "powerfulFeatures": "Powerful Features",
+  "everythingYouNeed": "Everything you need to efficiently manage your coffee machine service operations.",
+  "machineRegistration": "Machine Registration",
+  "machineRegistrationDesc": "Easily register and manage all your coffee machines in one place.",
+  "qrCodeIntegration": "QR Code Integration",
+  "qrCodeIntegrationDesc": "Generate unique QR codes for quick access to machine service history.",
+  "maintenanceLogging": "Maintenance Logging",
+  "maintenanceLoggingDesc": "Record all service details, replaced parts, and technician notes.",
+  "serviceHistory": "Service History",
+  "serviceHistoryDesc": "View complete maintenance history for any machine at any time.",
+  "partsTracking": "Parts Tracking",
+  "partsTrackingDesc": "Track all replaced parts and schedule preventive maintenance.",
+  "reporting": "Reporting",
+  "reportingDesc": "Generate detailed reports on service trends and machine performance.",
+  "readyToStreamline": "Ready to streamline your coffee machine maintenance?",
+  "startManagingToday": "Start managing your coffee machines efficiently today.",
+  "getStartedNow": "Get Started Now",
+  "about": "About",
+  "privacy": "Privacy",
+  "terms": "Terms",
+  "allRightsReserved": "All rights reserved.",
+  
+  // Loading
+  "loading": "Loading..."
+};

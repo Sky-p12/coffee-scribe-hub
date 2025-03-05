@@ -1,0 +1,181 @@
+
+export const fr = {
+  // Auth
+  "login": "Se connecter",
+  "register": "S'inscrire",
+  "email": "Email",
+  "password": "Mot de passe",
+  "forgotPassword": "Mot de passe oublié ?",
+  "dontHaveAccount": "Vous n'avez pas de compte ?",
+  "createAccount": "Créer un compte",
+  "signingIn": "Connexion en cours...",
+  "signIn": "Se connecter",
+  "welcomeBack": "Bienvenue",
+  "signInToCoffeeSAV": "Connectez-vous à votre compte CoffeeSAV",
+  "enterCredentials": "Entrez vos identifiants pour accéder à votre compte",
+  "demoCredentials": "Identifiants de démonstration",
+  
+  // Navigation
+  "dashboard": "Tableau de bord",
+  "machines": "Machines",
+  "maintenance": "Maintenance",
+  "history": "Historique",
+  "settings": "Paramètres",
+  "profile": "Profil",
+  "logout": "Déconnexion",
+  
+  // Dashboard
+  "welcome": "Bienvenue ! Voici un aperçu de vos opérations de machines à café.",
+  "totalMachines": "Machines totales",
+  "acrossAllLocations": "Dans tous les emplacements",
+  "maintenanceDue": "Maintenance prévue",
+  "withinNext7Days": "Dans les 7 prochains jours",
+  "recentServices": "Services récents",
+  "last30Days": "30 derniers jours",
+  "activeAlerts": "Alertes actives",
+  "requireAttention": "Nécessite attention",
+  "recentActivity": "Activité récente",
+  "latestEvents": "Derniers événements sur vos machines",
+  "quickActions": "Actions rapides",
+  "commonTasks": "Tâches et raccourcis courants",
+  "registerNewMachine": "Enregistrer une nouvelle machine",
+  "logMaintenance": "Enregistrer une maintenance",
+  "viewAllMachines": "Voir toutes les machines",
+  
+  // Machines
+  "coffeeMachines": "Machines à café",
+  "viewAndManageMachines": "Visualisez et gérez toutes vos machines à café enregistrées",
+  "searchMachines": "Rechercher des machines par nom, modèle ou emplacement...",
+  "viewDetails": "Voir les détails",
+  "nextService": "Prochain service",
+  "noServiceScheduled": "Aucun service programmé",
+  "noMachinesFound": "Aucune machine trouvée",
+  "noMachinesMessage": "Nous n'avons trouvé aucune machine correspondant à vos critères de recherche.",
+  "clearSearch": "Effacer la recherche",
+  
+  // Auth messages
+  "authRequired": "Authentification requise",
+  "pleaseLogIn": "Veuillez vous connecter pour accéder à cette page",
+  
+  // Status
+  "operational": "Opérationnelle",
+  "needsService": "Nécessite entretien",
+  "outOfOrder": "Hors service",
+  
+  // Languages
+  "english": "Anglais",
+  "french": "Français",
+  
+  // Register page
+  "createYourAccount": "Créer un Compte",
+  "joinCoffeeSAV": "Rejoignez CoffeeSAV pour gérer vos machines à café",
+  "enterDetailsToCreate": "Entrez vos informations pour créer un nouveau compte",
+  "fullName": "Nom Complet",
+  "confirmPassword": "Confirmer le Mot de Passe",
+  "creatingAccount": "Création du compte...",
+  "alreadyHaveAccount": "Vous avez déjà un compte ?",
+  
+  // NotFound page
+  "pageNotFound": "Page Non Trouvée",
+  "pageNotFoundMessage": "Désolé, nous n'avons pas trouvé la page que vous cherchez. La page a peut-être été déplacée, supprimée ou n'a jamais existé.",
+  "backToHome": "Retour à l'Accueil",
+  "goBack": "Retour",
+  
+  // About page
+  "aboutCoffeeSAV": "À Propos de CoffeeSAV",
+  "aboutTagline": "Révolutionner le suivi de service et d'entretien des machines à café",
+  "aboutMission": "Notre Mission",
+  "aboutVision": "Notre Vision",
+  "aboutPrinciples": "Nos Principes",
+  "joinOurJourney": "Rejoignez Notre Aventure",
+  "qualityFirst": "Qualité d'Abord",
+  "collaboration": "Collaboration",
+  "innovation": "Innovation",
+  "dataDriver": "Basé sur les Données",
+  "reliability": "Fiabilité",
+  "userCentric": "Centré sur l'Utilisateur",
+  
+  // Contact page
+  "contactUs": "Contactez-Nous",
+  "getInTouch": "Entrez en contact avec notre équipe",
+  "contactForm": "Formulaire de Contact",
+  "yourName": "Votre Nom",
+  "yourEmail": "Votre Email",
+  "subject": "Sujet",
+  "message": "Message",
+  "sendMessage": "Envoyer le Message",
+  "sending": "Envoi en cours...",
+  
+  // Profile page
+  "profileSettings": "Paramètres du Profil",
+  "manageYourProfile": "Gérez vos informations personnelles et préférences",
+  "personalInfo": "Informations Personnelles",
+  "accountSettings": "Paramètres du Compte",
+  "notifications": "Notifications",
+  "emailNotifications": "Notifications par Email",
+  "saveChanges": "Enregistrer les Modifications",
+  "saving": "Enregistrement...",
+  
+  // Machine details
+  "machineDetails": "Détails de la Machine",
+  "machineInfo": "Informations sur la Machine",
+  "status": "Statut",
+  "model": "Modèle",
+  "serialNumber": "Numéro de Série",
+  "installationDate": "Date d'Installation",
+  "location": "Emplacement",
+  "lastMaintenance": "Dernière Maintenance",
+  "upcomingMaintenance": "Maintenance à Venir",
+  "maintenanceHistory": "Historique de Maintenance",
+  "performedBy": "Effectuée Par",
+  "date": "Date",
+  "type": "Type",
+  "notes": "Notes",
+  "editMachine": "Modifier la Machine",
+  "deleteMachine": "Supprimer la Machine",
+  "scheduleService": "Planifier un Service",
+  "reportIssue": "Signaler un Problème",
+  
+  // Maintenance page
+  "maintenanceManagement": "Gestion de la Maintenance",
+  "scheduledMaintenance": "Maintenance Programmée",
+  "completedMaintenance": "Maintenance Terminée",
+  "noScheduledMaintenance": "Aucune maintenance programmée",
+  "noCompletedMaintenance": "Aucun historique de maintenance",
+  "machineId": "ID de la Machine",
+  "maintenanceType": "Type de Maintenance",
+  "maintenanceDate": "Date de Maintenance",
+  "technician": "Technicien",
+  "markComplete": "Marquer comme Terminé",
+  "addNewMaintenance": "Ajouter une Nouvelle Maintenance",
+  
+  // Home page
+  "coffeeManagementSystem": "Gestion de Service des Machines à Café",
+  "trackMaintenanceDescription": "Suivez la maintenance, gérez les registres de service et optimisez les opérations de vos machines à café.",
+  "getStarted": "Commencer",
+  "learnMore": "En savoir plus",
+  "powerfulFeatures": "Fonctionnalités Puissantes",
+  "everythingYouNeed": "Tout ce dont vous avez besoin pour gérer efficacement vos opérations de service de machines à café.",
+  "machineRegistration": "Enregistrement de Machine",
+  "machineRegistrationDesc": "Enregistrez et gérez facilement toutes vos machines à café en un seul endroit.",
+  "qrCodeIntegration": "Intégration QR Code",
+  "qrCodeIntegrationDesc": "Générez des codes QR uniques pour un accès rapide à l'historique de service des machines.",
+  "maintenanceLogging": "Journal de Maintenance",
+  "maintenanceLoggingDesc": "Enregistrez tous les détails de service, les pièces remplacées et les notes des techniciens.",
+  "serviceHistory": "Historique de Service",
+  "serviceHistoryDesc": "Consultez l'historique complet de maintenance pour n'importe quelle machine à tout moment.",
+  "partsTracking": "Suivi des Pièces",
+  "partsTrackingDesc": "Suivez toutes les pièces remplacées et planifiez la maintenance préventive.",
+  "reporting": "Rapports",
+  "reportingDesc": "Générez des rapports détaillés sur les tendances de service et les performances des machines.",
+  "readyToStreamline": "Prêt à simplifier la maintenance de vos machines à café ?",
+  "startManagingToday": "Commencez à gérer efficacement vos machines à café dès aujourd'hui.",
+  "getStartedNow": "Commencer Maintenant",
+  "about": "À propos",
+  "privacy": "Confidentialité",
+  "terms": "Conditions",
+  "allRightsReserved": "Tous droits réservés.",
+  
+  // Loading
+  "loading": "Chargement..."
+};
