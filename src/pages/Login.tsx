@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Container, PageContainer } from "@/components/layout/Container";
 import { 
   Card, 
@@ -14,50 +14,25 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Coffee, LogIn } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
+import { useAuth } from "@/contexts/AuthContext";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-  const { toast } = useToast();
+  const { login, isLoading } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+  
+  // Get the return URL from location state or default to dashboard
+  const from = (location.state as { from?: { pathname: string } })?.from?.pathname || "/dashboard";
   
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!email || !password) {
-      toast({
-        title: "Error",
-        description: "Please enter both email and password",
-        variant: "destructive",
-      });
-      return;
+    const success = await login(email, password);
+    if (success) {
+      navigate(from, { replace: true });
     }
-    
-    setIsLoading(true);
-    
-    // Simulate authentication
-    // In a real application, this would be an API call
-    setTimeout(() => {
-      // Demo credentials check (in real app, this would be handled by backend)
-      if (email === "demo@coffeesav.com" && password === "password") {
-        toast({
-          title: "Success",
-          description: "Login successful! Redirecting to dashboard...",
-        });
-        
-        // In a real application, you would set authentication state and redirect
-        window.location.href = "/dashboard";
-      } else {
-        toast({
-          title: "Authentication Failed",
-          description: "Invalid email or password. Try using demo@coffeesav.com / password",
-          variant: "destructive",
-        });
-      }
-      
-      setIsLoading(false);
-    }, 1500);
   };
   
   return (

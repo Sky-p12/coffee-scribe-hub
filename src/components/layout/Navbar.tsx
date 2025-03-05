@@ -15,15 +15,14 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { useAuth } from "@/contexts/AuthContext";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const isMobile = useIsMobile();
   const location = useLocation();
-  
-  // Determine if user is authenticated (placeholder for real auth)
-  const isAuthenticated = true; // Change to false to see login UI
+  const { user, logout, isAuthenticated } = useAuth();
   
   // Update navbar style on scroll
   useEffect(() => {
@@ -155,11 +154,14 @@ export function Navbar() {
                 Profile
               </Link>
             </Button>
-            <Button variant="ghost" size="sm" className="justify-start text-destructive" asChild>
-              <Link to="/logout" className="flex items-center">
-                <LogOut className="h-4 w-4 mr-2" />
-                Logout
-              </Link>
+            <Button 
+              variant="ghost" 
+              size="sm" 
+              className="justify-start text-destructive"
+              onClick={logout}
+            >
+              <LogOut className="h-4 w-4 mr-2" />
+              Logout
             </Button>
           </nav>
         </div>

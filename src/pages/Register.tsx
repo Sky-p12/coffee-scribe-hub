@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Container, PageContainer } from "@/components/layout/Container";
 import { 
   Card, 
@@ -14,51 +14,28 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Coffee, UserPlus } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
+import { useAuth } from "@/contexts/AuthContext";
 
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-  const { toast } = useToast();
+  const { register, isLoading } = useAuth();
+  const navigate = useNavigate();
   
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!name || !email || !password || !confirmPassword) {
-      toast({
-        title: "Error",
-        description: "Please fill in all fields",
-        variant: "destructive",
-      });
-      return;
-    }
-    
     if (password !== confirmPassword) {
-      toast({
-        title: "Error",
-        description: "Passwords do not match",
-        variant: "destructive",
-      });
+      // Toast error is handled by the Auth context
       return;
     }
     
-    setIsLoading(true);
-    
-    // Simulate registration
-    setTimeout(() => {
-      toast({
-        title: "Account Created",
-        description: "Registration successful! You can now login.",
-      });
-      
-      // In a real app, this would redirect to login after successful registration
-      window.location.href = "/login";
-      
-      setIsLoading(false);
-    }, 1500);
+    const success = await register(name, email, password);
+    if (success) {
+      navigate("/login");
+    }
   };
   
   return (
