@@ -22,9 +22,11 @@ import {
   MapPin,
 } from "lucide-react";
 import { machines } from "@/data/machines";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const MachinesPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
+  const { t } = useLanguage();
 
   const filteredMachines = machines.filter(machine => 
     machine.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -37,15 +39,15 @@ const MachinesPage = () => {
       <PageContainer>
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
           <div>
-            <h1 className="text-3xl font-bold mb-2">Coffee Machines</h1>
+            <h1 className="text-3xl font-bold mb-2">{t("coffeeMachines")}</h1>
             <p className="text-muted-foreground">
-              View and manage all your registered coffee machines
+              {t("viewAndManageMachines")}
             </p>
           </div>
           <Button className="mt-4 md:mt-0" asChild>
             <Link to="/machines/register">
               <Plus className="mr-2 h-4 w-4" />
-              Register New Machine
+              {t("registerNewMachine")}
             </Link>
           </Button>
         </div>
@@ -54,7 +56,7 @@ const MachinesPage = () => {
           <div className="relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input
-              placeholder="Search machines by name, model, or location..."
+              placeholder={t("searchMachines")}
               className="pl-10"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
@@ -96,14 +98,14 @@ const MachinesPage = () => {
                       <Calendar className="h-4 w-4 mr-2" />
                       <span className="text-sm">
                         {machine.nextServiceDue
-                          ? `Next service: ${new Date(machine.nextServiceDue).toLocaleDateString()}`
-                          : "No service scheduled"}
+                          ? `${t("nextService")}: ${new Date(machine.nextServiceDue).toLocaleDateString()}`
+                          : t("noServiceScheduled")}
                       </span>
                     </div>
                   </CardContent>
                   <CardFooter className="pt-0">
                     <Button variant="ghost" size="sm" className="ml-auto group-hover:text-primary transition-colors">
-                      View Details
+                      {t("viewDetails")}
                     </Button>
                   </CardFooter>
                 </Card>
@@ -114,12 +116,12 @@ const MachinesPage = () => {
               <div className="bg-muted/50 p-4 rounded-full mb-4">
                 <Coffee className="h-8 w-8 text-muted-foreground" />
               </div>
-              <h3 className="text-lg font-medium mb-2">No machines found</h3>
+              <h3 className="text-lg font-medium mb-2">{t("noMachinesFound")}</h3>
               <p className="text-muted-foreground text-center mb-4">
-                We couldn't find any machines matching your search criteria.
+                {t("noMachinesMessage")}
               </p>
               <Button variant="outline" onClick={() => setSearchTerm("")}>
-                Clear Search
+                {t("clearSearch")}
               </Button>
             </div>
           )}

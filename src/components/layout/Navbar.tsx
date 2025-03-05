@@ -16,6 +16,8 @@ import {
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useAuth } from "@/contexts/AuthContext";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -23,6 +25,7 @@ export function Navbar() {
   const isMobile = useIsMobile();
   const location = useLocation();
   const { user, logout, isAuthenticated } = useAuth();
+  const { t } = useLanguage();
   
   // Update navbar style on scroll
   useEffect(() => {
@@ -40,10 +43,10 @@ export function Navbar() {
   }, [location.pathname]);
   
   const navLinks = isAuthenticated ? [
-    { name: "Dashboard", path: "/dashboard", icon: <Home className="w-4 h-4 mr-2" /> },
-    { name: "Machines", path: "/machines", icon: <Coffee className="w-4 h-4 mr-2" /> },
-    { name: "Maintenance", path: "/maintenance", icon: <FileText className="w-4 h-4 mr-2" /> },
-    { name: "History", path: "/history", icon: <History className="w-4 h-4 mr-2" /> },
+    { name: t("dashboard"), path: "/dashboard", icon: <Home className="w-4 h-4 mr-2" /> },
+    { name: t("machines"), path: "/machines", icon: <Coffee className="w-4 h-4 mr-2" /> },
+    { name: t("maintenance"), path: "/maintenance", icon: <FileText className="w-4 h-4 mr-2" /> },
+    { name: t("history"), path: "/history", icon: <History className="w-4 h-4 mr-2" /> },
   ] : [];
   
   return (
@@ -85,6 +88,9 @@ export function Navbar() {
         
         {/* Right side actions */}
         <div className="flex items-center space-x-2">
+          {/* Language Switcher */}
+          <LanguageSwitcher />
+          
           {isAuthenticated ? (
             <>
               {!isMobile && (
@@ -114,10 +120,10 @@ export function Navbar() {
           ) : (
             <>
               <Button size="sm" variant="ghost" asChild>
-                <Link to="/login">Log in</Link>
+                <Link to="/login">{t("login")}</Link>
               </Button>
               <Button size="sm" asChild>
-                <Link to="/register">Register</Link>
+                <Link to="/register">{t("register")}</Link>
               </Button>
             </>
           )}
@@ -145,13 +151,13 @@ export function Navbar() {
             <Button variant="ghost" size="sm" className="justify-start" asChild>
               <Link to="/settings" className="flex items-center">
                 <Settings className="h-4 w-4 mr-2" />
-                Settings
+                {t("settings")}
               </Link>
             </Button>
             <Button variant="ghost" size="sm" className="justify-start" asChild>
               <Link to="/profile" className="flex items-center">
                 <User className="h-4 w-4 mr-2" />
-                Profile
+                {t("profile")}
               </Link>
             </Button>
             <Button 
@@ -161,7 +167,7 @@ export function Navbar() {
               onClick={logout}
             >
               <LogOut className="h-4 w-4 mr-2" />
-              Logout
+              {t("logout")}
             </Button>
           </nav>
         </div>

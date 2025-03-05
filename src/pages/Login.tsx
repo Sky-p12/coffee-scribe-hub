@@ -15,6 +15,7 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Coffee, LogIn } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -22,6 +23,7 @@ const Login = () => {
   const { login, isLoading } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
+  const { t } = useLanguage();
   
   // Get the return URL from location state or default to dashboard
   const from = (location.state as { from?: { pathname: string } })?.from?.pathname || "/dashboard";
@@ -43,23 +45,23 @@ const Login = () => {
             <div className="inline-flex bg-primary/10 p-3 rounded-full mb-4">
               <Coffee className="h-8 w-8 text-primary" />
             </div>
-            <h1 className="text-3xl font-bold">Welcome Back</h1>
+            <h1 className="text-3xl font-bold">{t("welcomeBack")}</h1>
             <p className="text-muted-foreground mt-2">
-              Sign in to your CoffeeSAV account
+              {t("signInToCoffeeSAV")}
             </p>
           </div>
           
           <Card>
             <CardHeader>
-              <CardTitle>Login</CardTitle>
+              <CardTitle>{t("login")}</CardTitle>
               <CardDescription>
-                Enter your credentials to access your account
+                {t("enterCredentials")}
               </CardDescription>
             </CardHeader>
             <form onSubmit={handleLogin}>
               <CardContent className="space-y-4">
                 <div className="space-y-2">
-                  <Label htmlFor="email">Email</Label>
+                  <Label htmlFor="email">{t("email")}</Label>
                   <Input
                     id="email"
                     type="email"
@@ -71,12 +73,12 @@ const Login = () => {
                 </div>
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
-                    <Label htmlFor="password">Password</Label>
+                    <Label htmlFor="password">{t("password")}</Label>
                     <Link 
                       to="/forgot-password" 
                       className="text-sm text-primary hover:underline"
                     >
-                      Forgot password?
+                      {t("forgotPassword")}
                     </Link>
                   </div>
                   <Input
@@ -101,23 +103,23 @@ const Login = () => {
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                       </svg>
-                      Signing in...
+                      {t("signingIn")}
                     </span>
                   ) : (
                     <span className="flex items-center">
                       <LogIn className="mr-2 h-4 w-4" />
-                      Sign in
+                      {t("signIn")}
                     </span>
                   )}
                 </Button>
                 <div className="text-center">
                   <span className="text-muted-foreground">
-                    Don't have an account?{" "}
+                    {t("dontHaveAccount")}{" "}
                     <Link 
                       to="/register" 
                       className="text-primary hover:underline font-medium"
                     >
-                      Create account
+                      {t("createAccount")}
                     </Link>
                   </span>
                 </div>
@@ -127,7 +129,7 @@ const Login = () => {
           
           <div className="mt-8 text-center text-sm text-muted-foreground">
             <p>
-              Demo credentials: <span className="font-medium">demo@coffeesav.com / password</span>
+              {t("demoCredentials")}: <span className="font-medium">demo@coffeesav.com / password</span>
             </p>
           </div>
         </div>
