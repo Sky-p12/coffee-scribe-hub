@@ -27,7 +27,7 @@ const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
 
   if (isLoading) {
     // You could render a loading spinner here
-    return <div className="flex items-center justify-center min-h-screen">Loading...</div>;
+    return <div className="flex items-center justify-center min-h-screen">{t("loading")}</div>;
   }
 
   if (!isAuthenticated) {

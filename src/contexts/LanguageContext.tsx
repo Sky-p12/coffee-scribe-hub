@@ -77,7 +77,93 @@ export const translations = {
     
     // Languages
     "english": "English",
-    "french": "French"
+    "french": "French",
+    
+    // Register page
+    "createYourAccount": "Create Account",
+    "joinCoffeeSAV": "Join CoffeeSAV to manage your coffee machines",
+    "enterDetailsToCreate": "Enter your details to create a new account",
+    "fullName": "Full Name",
+    "confirmPassword": "Confirm Password",
+    "creatingAccount": "Creating account...",
+    "alreadyHaveAccount": "Already have an account?",
+    
+    // NotFound page
+    "pageNotFound": "Page Not Found",
+    "pageNotFoundMessage": "Sorry, we couldn't find the page you're looking for. The page might have been moved, deleted, or never existed.",
+    "backToHome": "Back to Home",
+    "goBack": "Go Back",
+    
+    // About page
+    "aboutCoffeeSAV": "About CoffeeSAV",
+    "aboutTagline": "Revolutionizing coffee machine service and maintenance tracking",
+    "aboutMission": "Our Mission",
+    "aboutVision": "Our Vision",
+    "aboutPrinciples": "Our Principles",
+    "joinOurJourney": "Join Our Journey",
+    "qualityFirst": "Quality First",
+    "collaboration": "Collaboration",
+    "innovation": "Innovation",
+    "dataDriver": "Data-Driven",
+    "reliability": "Reliability",
+    "userCentric": "User-Centric",
+    
+    // Contact page
+    "contactUs": "Contact Us",
+    "getInTouch": "Get in touch with our team",
+    "contactForm": "Contact Form",
+    "yourName": "Your Name",
+    "yourEmail": "Your Email",
+    "subject": "Subject",
+    "message": "Message",
+    "sendMessage": "Send Message",
+    "sending": "Sending...",
+    
+    // Profile page
+    "profileSettings": "Profile Settings",
+    "manageYourProfile": "Manage your personal information and preferences",
+    "personalInfo": "Personal Information",
+    "accountSettings": "Account Settings",
+    "notifications": "Notifications",
+    "emailNotifications": "Email Notifications",
+    "saveChanges": "Save Changes",
+    "saving": "Saving...",
+    
+    // Machine details
+    "machineDetails": "Machine Details",
+    "machineInfo": "Machine Information",
+    "status": "Status",
+    "model": "Model",
+    "serialNumber": "Serial Number",
+    "installationDate": "Installation Date",
+    "location": "Location",
+    "lastMaintenance": "Last Maintenance",
+    "upcomingMaintenance": "Upcoming Maintenance",
+    "maintenanceHistory": "Maintenance History",
+    "performedBy": "Performed By",
+    "date": "Date",
+    "type": "Type",
+    "notes": "Notes",
+    "editMachine": "Edit Machine",
+    "deleteMachine": "Delete Machine",
+    "scheduleService": "Schedule Service",
+    "reportIssue": "Report Issue",
+    
+    // Maintenance page
+    "maintenanceManagement": "Maintenance Management",
+    "scheduledMaintenance": "Scheduled Maintenance",
+    "completedMaintenance": "Completed Maintenance",
+    "noScheduledMaintenance": "No scheduled maintenance",
+    "noCompletedMaintenance": "No completed maintenance records",
+    "machineId": "Machine ID",
+    "maintenanceType": "Maintenance Type",
+    "maintenanceDate": "Maintenance Date",
+    "technician": "Technician",
+    "markComplete": "Mark as Complete",
+    "addNewMaintenance": "Add New Maintenance",
+    
+    // Loading
+    "loading": "Loading..."
   },
   fr: {
     // Auth
@@ -144,7 +230,93 @@ export const translations = {
     
     // Languages
     "english": "Anglais",
-    "french": "Français"
+    "french": "Français",
+    
+    // Register page
+    "createYourAccount": "Créer un Compte",
+    "joinCoffeeSAV": "Rejoignez CoffeeSAV pour gérer vos machines à café",
+    "enterDetailsToCreate": "Entrez vos informations pour créer un nouveau compte",
+    "fullName": "Nom Complet",
+    "confirmPassword": "Confirmer le Mot de Passe",
+    "creatingAccount": "Création du compte...",
+    "alreadyHaveAccount": "Vous avez déjà un compte ?",
+    
+    // NotFound page
+    "pageNotFound": "Page Non Trouvée",
+    "pageNotFoundMessage": "Désolé, nous n'avons pas trouvé la page que vous cherchez. La page a peut-être été déplacée, supprimée ou n'a jamais existé.",
+    "backToHome": "Retour à l'Accueil",
+    "goBack": "Retour",
+    
+    // About page
+    "aboutCoffeeSAV": "À Propos de CoffeeSAV",
+    "aboutTagline": "Révolutionner le suivi de service et d'entretien des machines à café",
+    "aboutMission": "Notre Mission",
+    "aboutVision": "Notre Vision",
+    "aboutPrinciples": "Nos Principes",
+    "joinOurJourney": "Rejoignez Notre Aventure",
+    "qualityFirst": "Qualité d'Abord",
+    "collaboration": "Collaboration",
+    "innovation": "Innovation",
+    "dataDriver": "Basé sur les Données",
+    "reliability": "Fiabilité",
+    "userCentric": "Centré sur l'Utilisateur",
+    
+    // Contact page
+    "contactUs": "Contactez-Nous",
+    "getInTouch": "Entrez en contact avec notre équipe",
+    "contactForm": "Formulaire de Contact",
+    "yourName": "Votre Nom",
+    "yourEmail": "Votre Email",
+    "subject": "Sujet",
+    "message": "Message",
+    "sendMessage": "Envoyer le Message",
+    "sending": "Envoi en cours...",
+    
+    // Profile page
+    "profileSettings": "Paramètres du Profil",
+    "manageYourProfile": "Gérez vos informations personnelles et préférences",
+    "personalInfo": "Informations Personnelles",
+    "accountSettings": "Paramètres du Compte",
+    "notifications": "Notifications",
+    "emailNotifications": "Notifications par Email",
+    "saveChanges": "Enregistrer les Modifications",
+    "saving": "Enregistrement...",
+    
+    // Machine details
+    "machineDetails": "Détails de la Machine",
+    "machineInfo": "Informations sur la Machine",
+    "status": "Statut",
+    "model": "Modèle",
+    "serialNumber": "Numéro de Série",
+    "installationDate": "Date d'Installation",
+    "location": "Emplacement",
+    "lastMaintenance": "Dernière Maintenance",
+    "upcomingMaintenance": "Maintenance à Venir",
+    "maintenanceHistory": "Historique de Maintenance",
+    "performedBy": "Effectuée Par",
+    "date": "Date",
+    "type": "Type",
+    "notes": "Notes",
+    "editMachine": "Modifier la Machine",
+    "deleteMachine": "Supprimer la Machine",
+    "scheduleService": "Planifier un Service",
+    "reportIssue": "Signaler un Problème",
+    
+    // Maintenance page
+    "maintenanceManagement": "Gestion de la Maintenance",
+    "scheduledMaintenance": "Maintenance Programmée",
+    "completedMaintenance": "Maintenance Terminée",
+    "noScheduledMaintenance": "Aucune maintenance programmée",
+    "noCompletedMaintenance": "Aucun historique de maintenance",
+    "machineId": "ID de la Machine",
+    "maintenanceType": "Type de Maintenance",
+    "maintenanceDate": "Date de Maintenance",
+    "technician": "Technicien",
+    "markComplete": "Marquer comme Terminé",
+    "addNewMaintenance": "Ajouter une Nouvelle Maintenance",
+    
+    // Loading
+    "loading": "Chargement..."
   }
 };
 

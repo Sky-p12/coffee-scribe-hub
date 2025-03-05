@@ -18,6 +18,7 @@ export const LanguageSwitcher = () => {
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" size="icon" className="rounded-full">
           <Globe className="h-4 w-4" />
+          <span className="sr-only">Switch language</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
@@ -25,11 +26,13 @@ export const LanguageSwitcher = () => {
           <span className={`${language === "en" ? "font-bold" : ""}`}>
             {t("english")}
           </span>
+          {language === "en" && <span className="ml-2 text-primary">✓</span>}
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setLanguage("fr")}>
           <span className={`${language === "fr" ? "font-bold" : ""}`}>
             {t("french")}
           </span>
+          {language === "fr" && <span className="ml-2 text-primary">✓</span>}
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
