@@ -21,9 +21,11 @@ import {
   CardTitle 
 } from "@/components/ui/card";
 import { Container, PageContainer } from "@/components/layout/Container";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Hero = () => {
   const [isHovered, setIsHovered] = useState(false);
+  const { t } = useLanguage();
   
   return (
     <div className="min-h-[85vh] flex flex-col items-center justify-center px-4 py-16 md:py-24 relative overflow-hidden">
@@ -40,11 +42,11 @@ const Hero = () => {
         </div>
         
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4 text-balance">
-          Coffee Machine Service Management
+          {t("coffeeManagementSystem")}
         </h1>
         
         <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto text-balance">
-          Track maintenance, manage service records, and optimize your coffee machine operations.
+          {t("trackMaintenanceDescription")}
         </p>
         
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -56,7 +58,7 @@ const Hero = () => {
             onMouseLeave={() => setIsHovered(false)}
           >
             <Link to="/login">
-              Get Started
+              {t("getStarted")}
               <span className={`
                 inline-block ml-2 transition-transform duration-300 ease-in-out
                 ${isHovered ? "translate-x-1" : ""}
@@ -72,7 +74,7 @@ const Hero = () => {
             asChild
           >
             <Link to="/about">
-              Learn More
+              {t("learnMore")}
             </Link>
           </Button>
         </div>
@@ -84,13 +86,15 @@ const Hero = () => {
 };
 
 const Features = () => {
+  const { t } = useLanguage();
+  
   return (
     <div className="py-16 md:py-24 bg-muted/50">
       <PageContainer>
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-3">Powerful Features</h2>
+          <h2 className="text-3xl font-bold mb-3">{t("powerfulFeatures")}</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Everything you need to efficiently manage your coffee machine service operations.
+            {t("everythingYouNeed")}
           </p>
         </div>
         
@@ -98,33 +102,33 @@ const Features = () => {
           {[
             {
               icon: <Coffee className="h-10 w-10" />,
-              title: "Machine Registration",
-              description: "Easily register and manage all your coffee machines in one place."
+              title: t("machineRegistration"),
+              description: t("machineRegistrationDesc")
             },
             {
               icon: <QrCode className="h-10 w-10" />,
-              title: "QR Code Integration",
-              description: "Generate unique QR codes for quick access to machine service history."
+              title: t("qrCodeIntegration"),
+              description: t("qrCodeIntegrationDesc")
             },
             {
               icon: <ClipboardList className="h-10 w-10" />,
-              title: "Maintenance Logging",
-              description: "Record all service details, replaced parts, and technician notes."
+              title: t("maintenanceLogging"),
+              description: t("maintenanceLoggingDesc")
             },
             {
               icon: <History className="h-10 w-10" />,
-              title: "Service History",
-              description: "View complete maintenance history for any machine at any time."
+              title: t("serviceHistory"),
+              description: t("serviceHistoryDesc")
             },
             {
               icon: <Wrench className="h-10 w-10" />,
-              title: "Parts Tracking",
-              description: "Track all replaced parts and schedule preventive maintenance."
+              title: t("partsTracking"),
+              description: t("partsTrackingDesc")
             },
             {
               icon: <FileText className="h-10 w-10" />,
-              title: "Reporting",
-              description: "Generate detailed reports on service trends and machine performance."
+              title: t("reporting"),
+              description: t("reportingDesc")
             },
           ].map((feature, index) => (
             <Card 
@@ -145,7 +149,7 @@ const Features = () => {
               <CardFooter>
                 <Button variant="ghost" size="sm" className="group" asChild>
                   <Link to="/login" className="flex items-center">
-                    <span>Learn more</span>
+                    <span>{t("learnMore")}</span>
                     <ChevronRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Link>
                 </Button>
@@ -159,19 +163,21 @@ const Features = () => {
 };
 
 const CallToAction = () => {
+  const { t } = useLanguage();
+  
   return (
     <div className="py-16 md:py-24 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-tl from-coffee-50 via-transparent to-espresso-50 opacity-50 z-0" />
       
       <PageContainer className="relative z-10">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready to streamline your coffee machine maintenance?</h2>
+          <h2 className="text-3xl font-bold mb-4">{t("readyToStreamline")}</h2>
           <p className="text-xl text-muted-foreground mb-8">
-            Start managing your coffee machines efficiently today.
+            {t("startManagingToday")}
           </p>
           
           <Button size="lg" asChild>
-            <Link to="/login">Get Started Now</Link>
+            <Link to="/login">{t("getStartedNow")}</Link>
           </Button>
         </div>
       </PageContainer>
@@ -180,6 +186,8 @@ const CallToAction = () => {
 };
 
 const Footer = () => {
+  const { t } = useLanguage();
+  
   return (
     <footer className="bg-muted/30 border-t border-border py-12">
       <PageContainer>
@@ -191,23 +199,23 @@ const Footer = () => {
           
           <div className="flex space-x-8">
             <Link to="/about" className="text-muted-foreground hover:text-foreground transition-colors">
-              About
+              {t("about")}
             </Link>
             <Link to="/contact" className="text-muted-foreground hover:text-foreground transition-colors">
-              Contact
+              {t("contactUs")}
             </Link>
             <Link to="/privacy" className="text-muted-foreground hover:text-foreground transition-colors">
-              Privacy
+              {t("privacy")}
             </Link>
             <Link to="/terms" className="text-muted-foreground hover:text-foreground transition-colors">
-              Terms
+              {t("terms")}
             </Link>
           </div>
         </div>
         
         <div className="mt-8 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-muted-foreground mb-4 md:mb-0">
-            &copy; {new Date().getFullYear()} CoffeeSAV. All rights reserved.
+            &copy; {new Date().getFullYear()} CoffeeSAV. {t("allRightsReserved")}
           </p>
           
           <div className="flex space-x-6">
