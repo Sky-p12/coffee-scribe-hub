@@ -1,6 +1,7 @@
 
 import { ReactNode } from "react";
 import { Navbar } from "./Navbar";
+import { useLocation } from "react-router-dom";
 
 interface ContainerProps {
   children: ReactNode;
@@ -8,10 +9,13 @@ interface ContainerProps {
 }
 
 export function Container({ children, className = "" }: ContainerProps) {
+  const location = useLocation();
+  const isAuthPage = location.pathname === "/login" || location.pathname === "/register" || location.pathname === "/forgot-password";
+  
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      <main className={`flex-1 mt-16 ${className}`}>
+      <main className={`flex-1 ${isAuthPage ? '' : 'mt-16'} ${className}`}>
         {children}
       </main>
     </div>
