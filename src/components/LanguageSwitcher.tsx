@@ -24,13 +24,13 @@ export const LanguageSwitcher = () => {
       <DropdownMenuContent align="end">
         <DropdownMenuItem onClick={() => setLanguage("en")}>
           <span className={`${language === "en" ? "font-bold" : ""}`}>
-            English
+            {t("english")}
           </span>
           {language === "en" && <span className="ml-2 text-primary">✓</span>}
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setLanguage("fr")}>
           <span className={`${language === "fr" ? "font-bold" : ""}`}>
-            Français
+            {t("french")}
           </span>
           {language === "fr" && <span className="ml-2 text-primary">✓</span>}
         </DropdownMenuItem>
