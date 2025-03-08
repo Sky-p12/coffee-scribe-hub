@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Container, PageContainer } from "@/components/layout/Container";
 import {
   Card,
@@ -22,39 +22,53 @@ import {
   Trash2
 } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
+import { useTheme } from "@/contexts/ThemeContext";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Settings = () => {
   const { toast } = useToast();
   const { logout } = useAuth();
+  const { theme, setTheme } = useTheme();
+  const { t } = useLanguage();
   
   const [settings, setSettings] = useState({
     emailNotifications: true,
     smsNotifications: false,
     maintenanceReminders: true,
     alertNotifications: true,
-    darkMode: false,
     autoLogout: true
   });
+
+  const [isDarkMode, setIsDarkMode] = useState(theme === "dark");
   
+  useEffect(() => {
+    setIsDarkMode(theme === "dark");
+  }, [theme]);
+
   const handleToggle = (setting: keyof typeof settings) => {
     setSettings(prev => ({
       ...prev,
       [setting]: !prev[setting]
     }));
   };
+
+  const handleDarkModeToggle = () => {
+    const newTheme = isDarkMode ? "light" : "dark";
+    setIsDarkMode(!isDarkMode);
+    setTheme(newTheme);
+  };
   
   const handleSaveSettings = () => {
     toast({
-      title: "Settings Saved",
-      description: "Your preferences have been updated.",
+      title: t("settingsSaved"),
+      description: t("preferencesUpdated"),
     });
   };
   
   const handleDeleteAccount = () => {
-    // In a real app, this would open a confirmation dialog
     toast({
-      title: "Account Deletion",
-      description: "This feature is not available in the demo version.",
+      title: t("accountDeletion"),
+      description: t("featureNotAvailable"),
       variant: "destructive",
     });
   };
@@ -63,9 +77,9 @@ const Settings = () => {
     <Container>
       <PageContainer>
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-3xl font-bold mb-2">Settings</h1>
+          <h1 className="text-3xl font-bold mb-2">{t("settings")}</h1>
           <p className="text-muted-foreground mb-8">
-            Manage your preferences and account settings
+            {t("managePreferences")}
           </p>
           
           <div className="grid grid-cols-1 gap-8">
@@ -73,18 +87,18 @@ const Settings = () => {
               <CardHeader>
                 <CardTitle className="flex items-center">
                   <Bell className="h-5 w-5 mr-2" />
-                  Notification Preferences
+                  {t("notificationPreferences")}
                 </CardTitle>
                 <CardDescription>
-                  Control how and when you receive notifications
+                  {t("controlNotifications")}
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
                 <div className="flex items-center justify-between">
                   <div className="space-y-0.5">
-                    <Label htmlFor="email-notifications">Email Notifications</Label>
+                    <Label htmlFor="email-notifications">{t("emailNotifications")}</Label>
                     <p className="text-sm text-muted-foreground">
-                      Receive notifications via email
+                      {t("receiveViaEmail")}
                     </p>
                   </div>
                   <Switch
@@ -96,9 +110,9 @@ const Settings = () => {
                 
                 <div className="flex items-center justify-between">
                   <div className="space-y-0.5">
-                    <Label htmlFor="sms-notifications">SMS Notifications</Label>
+                    <Label htmlFor="sms-notifications">{t("smsNotifications")}</Label>
                     <p className="text-sm text-muted-foreground">
-                      Receive notifications via text message
+                      {t("receiveViaSMS")}
                     </p>
                   </div>
                   <Switch
@@ -110,9 +124,9 @@ const Settings = () => {
                 
                 <div className="flex items-center justify-between">
                   <div className="space-y-0.5">
-                    <Label htmlFor="maintenance-reminders">Maintenance Reminders</Label>
+                    <Label htmlFor="maintenance-reminders">{t("maintenanceReminders")}</Label>
                     <p className="text-sm text-muted-foreground">
-                      Get reminders for upcoming maintenance
+                      {t("getRemindersMaintenance")}
                     </p>
                   </div>
                   <Switch
@@ -124,9 +138,9 @@ const Settings = () => {
                 
                 <div className="flex items-center justify-between">
                   <div className="space-y-0.5">
-                    <Label htmlFor="alert-notifications">Machine Alerts</Label>
+                    <Label htmlFor="alert-notifications">{t("machineAlerts")}</Label>
                     <p className="text-sm text-muted-foreground">
-                      Get notified when a machine reports an issue
+                      {t("notifiedMachineIssue")}
                     </p>
                   </div>
                   <Switch
@@ -142,32 +156,32 @@ const Settings = () => {
               <CardHeader>
                 <CardTitle className="flex items-center">
                   <SettingsIcon className="h-5 w-5 mr-2" />
-                  Application Settings
+                  {t("applicationSettings")}
                 </CardTitle>
                 <CardDescription>
-                  Customize your application experience
+                  {t("customizeExperience")}
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
                 <div className="flex items-center justify-between">
                   <div className="space-y-0.5">
-                    <Label htmlFor="dark-mode">Dark Mode</Label>
+                    <Label htmlFor="dark-mode">{t("darkMode")}</Label>
                     <p className="text-sm text-muted-foreground">
-                      Switch between light and dark theme
+                      {t("switchTheme")}
                     </p>
                   </div>
                   <Switch
                     id="dark-mode"
-                    checked={settings.darkMode}
-                    onCheckedChange={() => handleToggle('darkMode')}
+                    checked={isDarkMode}
+                    onCheckedChange={handleDarkModeToggle}
                   />
                 </div>
                 
                 <div className="flex items-center justify-between">
                   <div className="space-y-0.5">
-                    <Label htmlFor="auto-logout">Auto Logout</Label>
+                    <Label htmlFor="auto-logout">{t("autoLogout")}</Label>
                     <p className="text-sm text-muted-foreground">
-                      Automatically log out after 30 minutes of inactivity
+                      {t("automaticallyLogout")}
                     </p>
                   </div>
                   <Switch
@@ -181,17 +195,17 @@ const Settings = () => {
             
             <Card>
               <CardHeader>
-                <CardTitle className="text-destructive">Danger Zone</CardTitle>
+                <CardTitle className="text-destructive">{t("dangerZone")}</CardTitle>
                 <CardDescription>
-                  Irreversible actions that affect your account
+                  {t("irreversibleActions")}
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <h3 className="font-medium mb-1">Delete Account</h3>
+                    <h3 className="font-medium mb-1">{t("deleteAccount")}</h3>
                     <p className="text-sm text-muted-foreground">
-                      Permanently delete your account and all associated data
+                      {t("permanentlyDelete")}
                     </p>
                   </div>
                   <Button 
@@ -199,22 +213,22 @@ const Settings = () => {
                     onClick={handleDeleteAccount}
                   >
                     <Trash2 className="mr-2 h-4 w-4" />
-                    Delete Account
+                    {t("deleteAccount")}
                   </Button>
                 </div>
                 
                 <div className="flex items-center justify-between">
                   <div>
-                    <h3 className="font-medium mb-1">Logout</h3>
+                    <h3 className="font-medium mb-1">{t("logout")}</h3>
                     <p className="text-sm text-muted-foreground">
-                      Sign out from your current session
+                      {t("signOut")}
                     </p>
                   </div>
                   <Button 
                     variant="outline"
                     onClick={logout}
                   >
-                    Logout
+                    {t("logout")}
                   </Button>
                 </div>
               </CardContent>
@@ -223,7 +237,7 @@ const Settings = () => {
             <div className="flex justify-end">
               <Button onClick={handleSaveSettings}>
                 <Save className="mr-2 h-4 w-4" />
-                Save Settings
+                {t("saveSettings")}
               </Button>
             </div>
           </div>
