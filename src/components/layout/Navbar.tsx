@@ -4,8 +4,8 @@ import { NavLink, Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/contexts/AuthContext";
 import { Menu, X } from "lucide-react";
-import { useMobile } from "@/hooks/use-mobile";
-import LanguageSwitcher from "../LanguageSwitcher";
+import { useIsMobile } from "@/hooks/use-mobile";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { ThemeToggle } from "../ThemeToggle";
 
@@ -36,7 +36,7 @@ const NavItem = ({ to, children, onClick }: NavLinkProps) => {
 
 export const Navbar = () => {
   const { isAuthenticated, user } = useAuth();
-  const { isMobile } = useMobile();
+  const isMobile = useIsMobile();
   const [isOpen, setIsOpen] = React.useState(false);
   const { t } = useLanguage();
 

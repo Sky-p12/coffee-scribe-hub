@@ -13,6 +13,8 @@ export const en = {
   backToHome: "Back to Home",
   loadMore: "Load More",
   welcome: "Welcome",
+  english: "English",
+  french: "French",
 
   // Auth
   login: "Log In",
@@ -96,7 +98,6 @@ export const en = {
   irreversibleActions: "Irreversible actions that affect your account",
   deleteAccount: "Delete Account",
   permanentlyDelete: "Permanently delete your account and all associated data",
-  signOut: "Sign out from your current session",
   saveSettings: "Save Settings",
   settingsSaved: "Settings Saved",
   preferencesUpdated: "Your preferences have been updated.",

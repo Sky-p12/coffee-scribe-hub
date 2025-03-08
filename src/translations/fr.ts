@@ -13,6 +13,8 @@ export const fr = {
   backToHome: "Retour à l'Accueil",
   loadMore: "Charger Plus",
   welcome: "Bienvenue",
+  english: "Anglais",
+  french: "Français",
 
   // Auth
   login: "Connexion",
@@ -96,7 +98,6 @@ export const fr = {
   irreversibleActions: "Actions irréversibles qui affectent votre compte",
   deleteAccount: "Supprimer le Compte",
   permanentlyDelete: "Supprimer définitivement votre compte et toutes les données associées",
-  signOut: "Se déconnecter de votre session actuelle",
   saveSettings: "Enregistrer les Paramètres",
   settingsSaved: "Paramètres Enregistrés",
   preferencesUpdated: "Vos préférences ont été mises à jour.",
