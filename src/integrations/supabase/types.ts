@@ -9,7 +9,134 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      [_ in never]: never
+      machines: {
+        Row: {
+          created_at: string
+          id: string
+          image: string | null
+          installed_date: string
+          last_service: string | null
+          location: string
+          model: string
+          name: string
+          next_service_due: string | null
+          owner_id: string | null
+          serial_number: string
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          image?: string | null
+          installed_date: string
+          last_service?: string | null
+          location: string
+          model: string
+          name: string
+          next_service_due?: string | null
+          owner_id?: string | null
+          serial_number: string
+          status: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          image?: string | null
+          installed_date?: string
+          last_service?: string | null
+          location?: string
+          model?: string
+          name?: string
+          next_service_due?: string | null
+          owner_id?: string | null
+          serial_number?: string
+          status?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      maintenance_records: {
+        Row: {
+          created_at: string
+          date: string
+          id: string
+          machine_id: string
+          notes: string | null
+          parts: string[] | null
+          technician: string
+          type: string
+          updated_at: string
+          user_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          date: string
+          id?: string
+          machine_id: string
+          notes?: string | null
+          parts?: string[] | null
+          technician: string
+          type: string
+          updated_at?: string
+          user_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          date?: string
+          id?: string
+          machine_id?: string
+          notes?: string | null
+          parts?: string[] | null
+          technician?: string
+          type?: string
+          updated_at?: string
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "maintenance_records_machine_id_fkey"
+            columns: ["machine_id"]
+            isOneToOne: false
+            referencedRelation: "machines"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          company: string | null
+          created_at: string
+          email: string | null
+          id: string
+          name: string | null
+          role: string
+          updated_at: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          company?: string | null
+          created_at?: string
+          email?: string | null
+          id: string
+          name?: string | null
+          role?: string
+          updated_at?: string
+        }
+        Update: {
+          avatar_url?: string | null
+          company?: string | null
+          created_at?: string
+          email?: string | null
+          id?: string
+          name?: string | null
+          role?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

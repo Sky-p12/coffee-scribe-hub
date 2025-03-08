@@ -2,16 +2,13 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
-
-interface User {
-  id: string;
-  name: string;
-  email: string;
-  role: "admin" | "technician" | "customer";
-}
+import { supabase } from "@/integrations/supabase/client";
+import { User, Session } from "@supabase/supabase-js";
+import { Profile } from "@/types/machine";
 
 interface AuthContextType {
   user: User | null;
+  profile: Profile | null;
   isLoading: boolean;
   login: (email: string, password: string) => Promise<boolean>;
   register: (name: string, email: string, password: string) => Promise<boolean>;
@@ -31,55 +28,83 @@ export const useAuth = () => {
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
+  const [profile, setProfile] = useState<Profile | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [session, setSession] = useState<Session | null>(null);
   const navigate = useNavigate();
   const { toast } = useToast();
 
   useEffect(() => {
-    // Check for saved user in localStorage
-    const savedUser = localStorage.getItem("coffeesav_user");
-    if (savedUser) {
-      try {
-        setUser(JSON.parse(savedUser));
-      } catch (error) {
-        console.error("Failed to parse saved user", error);
-        localStorage.removeItem("coffeesav_user");
+    // Check for session
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setSession(session);
+      setUser(session?.user ?? null);
+      if (session?.user) {
+        fetchProfile(session.user.id);
+      } else {
+        setIsLoading(false);
       }
-    }
-    setIsLoading(false);
+    });
+
+    // Set up auth state listener
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session);
+      setUser(session?.user ?? null);
+      if (session?.user) {
+        fetchProfile(session.user.id);
+      } else {
+        setProfile(null);
+        setIsLoading(false);
+      }
+    });
+
+    return () => subscription.unsubscribe();
   }, []);
+
+  const fetchProfile = async (userId: string) => {
+    try {
+      const { data, error } = await supabase
+        .from('profiles')
+        .select('*')
+        .eq('id', userId)
+        .single();
+
+      if (error) {
+        console.error('Error fetching profile:', error);
+      } else {
+        setProfile(data as Profile);
+      }
+    } catch (error) {
+      console.error('Error fetching profile:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   const login = async (email: string, password: string): Promise<boolean> => {
     setIsLoading(true);
     
     try {
-      // Demo credentials check - in a real app this would be an API call
-      if (email === "demo@coffeesav.com" && password === "password") {
-        const mockUser: User = {
-          id: "user-1",
-          name: "Demo User",
-          email: "demo@coffeesav.com",
-          role: "admin"
-        };
-        
-        // Save user to localStorage
-        localStorage.setItem("coffeesav_user", JSON.stringify(mockUser));
-        setUser(mockUser);
-        
-        toast({
-          title: "Login successful",
-          description: "Welcome back to CoffeeSAV!",
-        });
-        
-        return true;
-      } else {
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email,
+        password
+      });
+      
+      if (error) {
         toast({
           title: "Login failed",
-          description: "Invalid email or password. Try demo@coffeesav.com / password",
+          description: error.message,
           variant: "destructive",
         });
         return false;
       }
+      
+      toast({
+        title: "Login successful",
+        description: "Welcome back to CoffeeSAV!",
+      });
+      
+      return true;
     } catch (error) {
       console.error("Login error:", error);
       toast({
@@ -97,8 +122,25 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     setIsLoading(true);
     
     try {
-      // In a real app, this would call an API endpoint
-      // Simulate successful registration
+      const { data, error } = await supabase.auth.signUp({
+        email,
+        password,
+        options: {
+          data: {
+            name,
+          },
+        },
+      });
+      
+      if (error) {
+        toast({
+          title: "Registration failed",
+          description: error.message,
+          variant: "destructive",
+        });
+        return false;
+      }
+      
       toast({
         title: "Registration successful",
         description: "Your account has been created! You can now log in.",
@@ -117,9 +159,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   };
 
-  const logout = () => {
-    localStorage.removeItem("coffeesav_user");
-    setUser(null);
+  const logout = async () => {
+    await supabase.auth.signOut();
     navigate("/");
     toast({
       title: "Logged out",
@@ -129,6 +170,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const value = {
     user,
+    profile,
     isLoading,
     login,
     register,
